@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    ports:
+    - "3307:3306"
+    restart: always
+    env_file:
+    - variables.env
+    stdin_open: true
+    tty: true
+    volumes:
+    - ./mysql/:/etc/mysql/conf.d/
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+    - "6379:6379"
+    restart: always
+    volumes:
+    - ./redis/:/usr/local/etc/redis/
+#    command: bash -c "src/redis-server redis.conf"
+
+#  spider:
+#    container_name: weibo_spider
+#    build: .
+#    command: bash -c "python config/create_all.py"
+#    stdin_open: true
+#    tty: true
+#    depends_on:
+#      - mysql
+#      - redis

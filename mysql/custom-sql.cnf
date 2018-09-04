@@ -1,0 +1,15 @@
+[mysqld]
+bind-address = 0.0.0.0
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init_connect ='SET NAMES utf8mb4'
+skip-character-set-client-handshake = true
+# skip reverse DNS looks up of clients
+skip-name-resolve
+[mysql]
+default-character-set = utf8mb4
+[server]
+character-set-server = utf8mb4
+bind-address = 0.0.0.0
+[mysql.server]
+bind-address = 0.0.0.0
